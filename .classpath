@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="src" path="UD02EjerciciosWhile/src"/>
+	<classpathentry kind="src" path="UD1EjerciciosParte2/src"/>
+	<classpathentry kind="src" path="UD1EjerciciosTema1Parte1/src"/>
+	<classpathentry kind="src" path="UD1EjerciciosTema1Parte2/src"/>
+	<classpathentry kind="output" path="UD02EjerciciosWhile/bin"/>
+</classpath>
