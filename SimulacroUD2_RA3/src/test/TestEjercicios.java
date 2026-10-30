@@ -15,6 +15,9 @@ public class TestEjercicios
 //Ejercicio 2
   	System.out.println("\n--Ejercicio 2--");
   	Ejercicios.dibujarZ(5);
+//Ejercicio 3
+  	System.out.println("\n--Ejercicio 3--");
+  	
     	
     	
     	
