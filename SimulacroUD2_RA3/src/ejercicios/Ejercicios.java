@@ -1,6 +1,8 @@
 package ejercicios;
 
-import java.util.Iterator;
+import java.util.List;
+
+import utiles.Utiles;
 
 public class Ejercicios 
 {
@@ -14,6 +16,14 @@ Usa obligatoriamente switch para establecer el precio base e if para aplicar los
 	public static Integer precioEntrada(Integer edad, String dia, Boolean socio) 
 	{
 	Integer precio = 0;
+	if (edad < 12 || edad >= 65) 
+	{
+		precio = precio - 3;
+	}
+	else if (socio = true) 
+	{
+		precio = precio - 2;
+	}
 		switch (dia)
 		{
 		case "LUNES":
@@ -42,17 +52,16 @@ Usa obligatoriamente switch para establecer el precio base e if para aplicar los
 			System.exit(0);
 			break;
 		}
+		Integer descuento = socio ? 2:0;
+		if (edad < 0)
+		{
+		return -1;
+		}
 		if (edad < 12 || edad >= 65) 
 		{
-			precio = precio - 3;
+			descuento +=3;
 		}
-		else if (socio = true) 
-		{
-			precio = precio - 2;
-		}
-		
-		Integer precioDescuento = precio;
-		return precioDescuento;
+		return precio - descuento;
 	}
 	
 	public static void dibujarZ(Integer lado)
@@ -76,15 +85,92 @@ Usa obligatoriamente switch para establecer el precio base e if para aplicar los
 		}
 	}
 	
-/*	
+	/*	
 	Un número es especial si es primo o perfecto. Recibe un intervalo [inicio, fin] y una cantidad. 
 	Recorre el intervalo de menor a mayor y devuelve la suma de los primeros 'cantidad' números especiales encontrados. Si un número cumple ambas condiciones, solo se suma una vez.
 Puedes utilizar Utiles.esPrimo(Integer) y Utiles.esPerfecto(Integer), que ya están implementados.
 Utiliza un bucle for con una condición if y termina el recorrido con break cuando hayas encontrado la cantidad solicitada. No utilices continue.
 Si inicio es mayor que fin, si cantidad es 0 o negativa, o si no hay números especiales, devuelve 0. Si hay menos números especiales de los solicitados, suma todos los encontrados.
-*/
+	 */
 	public static Integer sumaPrimerosEspeciales(Integer inicio, Integer fin, Integer cantidad)
 	{
-		
+		Integer res = 0;
+		Integer contador = 0;
+		for (int i = inicio; i <= fin; i++) 
+		{
+			if (Utiles.esPrimo(i) || Utiles.esPerfecto(i))
+			res += i;
+			contador++;
+			if (contador >= cantidad) 
+			{
+				break;
+			}
+		}
+		return res;
+	}
+	
+	public static Integer factorialConSaltos(Integer numero, Integer salto)
+	{
+		Integer res = 1;
+		if (numero <= 1) 
+		{
+			res = 1;
+		}
+		else 
+		{
+			res = numero * factorialConSaltos(numero-salto, salto);
+		}
+		return res;
+	}
+	
+	public static Integer contarPicos(List<Integer> alturas, Integer diferenciaMinima)
+	{
+//		contarPicos(List.of(2, 5, 1, 6, 3, 9, 7), 2) → 3
+		Integer contador = 0;
+		for (int i = 1; i < alturas.size()-1 ; i++)
+		{
+			Integer e = alturas.get(1);
+			Integer antes = alturas.get(i - 1);
+			Integer despues = alturas.get(i+1);
+			if (e > antes && e > despues);
+			{
+			contador++;
+			
+			}
+		}
+		return contador;
+//		Integer e = altura.get(i)
+//		Integer alturas = alturas.get(i + 1)
+//		Integer alturas = alturas.get(i - 1)
+	}
+	public static Integer primeraPosicionSumaCifras(List<Integer> numeros, Integer sumaObjetivo)
+	{
+		Integer pos = -1;
+		int i = 0;
+		while (i < numeros.size())
+		{
+			if (Utiles.sumaCifras(numeros.get(i))==sumaObjetivo)
+			{
+				pos = i;
+				break;
+			}
+			i++;
+		}
+		return pos;
+	}
+	public static Integer countNonOverlappingPairs(List<Integer> numbers)
+	{
+		Integer res = 0;
+		for (int i = 0; i < numbers.size() - 1; i++) 
+		{
+			Integer element = numbers.get(i);
+			Integer nextElement = numbers.get(i+1);
+			if ((element + nextElement)%5 == 0);
+			{
+				res++;
+				i++;
+			}
+		}
+		return res;
 	}
 }

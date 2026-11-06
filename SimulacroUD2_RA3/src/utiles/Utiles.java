@@ -40,4 +40,27 @@ public class Utiles
     }
     
     //TODO factorial de un número
+    public static Integer factorialRecursivo(Integer n)
+    {
+    	Integer res = 1;
+    	if (n == 1) 
+    	{
+			res = 1;
+		}
+    	else 
+    	{
+			res = n * factorialRecursivo (n-1);
+		}
+    	return res;
+    }
+    public static Integer sumaCifras(Integer n)
+    {
+    	Integer suma = 0;
+    	while (n != 0)
+    	{
+		 suma += n % 10;
+		 n = n / 10;
+		}
+    	return suma;
+    }
 }
